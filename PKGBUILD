@@ -7,31 +7,19 @@ pkgver=1.4.2
 pkgrel=1
 pkgdesc="Open Source Continuous Replication / Cluster Synchronization Thing: binary."
 url="http://syncthing.net/"
-arch=('any')
+arch=('x86_64')
 license=('MPLv2')
-provides=('syncthing=1.4.2')
+provides=("syncthing=$pkgver")
 conflicts=('syncthing')
-install=${_realname}.install
-source=( 'syncthing.1')
-sha256sums=('fb59747ca16d1b19e3cad1c147dcabea14a30a5e4177b90712e6bb837c107912')
- 
-
-case "$CARCH" in
-	arm*) _pkgarch="arm"
-		sha256sums+=('f314dabbad3b49ae539764a8d5819158e629a0ea8b6a41cffab9547800ec80a2')
-		;;
-	i686) _pkgarch="386"
-		sha256sums+=('53d035152c7c5dfce44cc132c724b4e04123fa52449ed067fed6a7522351cb31')
-		;;
-	x86_64) _pkgarch="amd64"
-		sha256sums+=('27360f1bbece883278686bd8714eaa28c0507699a4d1a98045d4efea27c9fb7f')
-		;;
-esac
-
-source+=("https://github.com/syncthing/${_realname}/releases/download/v${pkgver}/${_realname}-linux-${_pkgarch}-v${pkgver}.tar.gz")
+source=(
+  "https://github.com/syncthing/${_realname}/releases/download/v${pkgver}/${_realname}-linux-amd64-v${pkgver}.tar.gz"
+  'syncthing.1'
+)
+sha512sums=('c2652464829d42b6cc24253d26e23886d2b5b50e91ae264580219fa85690b9c925878eff609145e71227e1da1660f8e73e3b8b94a978487b6d2d2f58265054d3'
+            'ba63aa6513b387fc28290d8ade603eea9b23c583c03e9353a226fc38ced8d43e4e00716bd59058407d686ee70fb7e5f4e849b844f15e74d3dd33937fd36af300')
 
 package() {
-    cd "${_realname}-linux-${_pkgarch}-v${pkgver}"
+    cd "${_realname}-linux-amd64-v${pkgver}"
     install -D -m 755 ${_realname} "${pkgdir}/usr/bin/${_realname}"
     install -D -m 644 LICENSE.txt "${pkgdir}/usr/share/licenses/${_realname}/LICENSE"
     install -D -m 644 README.txt "${pkgdir}/usr/share/doc/${_realname}/README.md"
