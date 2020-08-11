@@ -3,7 +3,7 @@
 
 pkgname=syncthing-bin
 _realname=syncthing
-pkgver=1.7.1
+pkgver=1.8.0
 pkgrel=1
 pkgdesc="Open Source Continuous Replication / Cluster Synchronization Thing: binary."
 url="http://syncthing.net/"
@@ -15,7 +15,7 @@ source=(
   "https://github.com/syncthing/${_realname}/releases/download/v${pkgver}/${_realname}-linux-amd64-v${pkgver}.tar.gz"
   'syncthing.1'
 )
-sha512sums=('683bcc86084e23cebaf7b15272c891b1028638baffdc1d06fe27e3a22ed73f81996926580db67e751f3f9393bf00f17ca4a4b911cc3ec267dd73f8292c232959'
+sha512sums=('1758e48b01fa9478d5ae8fad346946d2bcf4c576b96d569890579673de793e2e10f5b636de1f0289459bc9b25bcdf222a985eb7d0afd918df8b4f895ec4a2932'
             'ba63aa6513b387fc28290d8ade603eea9b23c583c03e9353a226fc38ced8d43e4e00716bd59058407d686ee70fb7e5f4e849b844f15e74d3dd33937fd36af300')
 
 package() {
